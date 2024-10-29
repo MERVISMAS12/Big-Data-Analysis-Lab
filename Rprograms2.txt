@@ -1,0 +1,140 @@
+2. Which function is used to concatenate text values in R. Write a script
+to concatenate text and numerical values in R
+Text_1 = "Ram has scored"
+Text_2 = 89
+Text_3 = "marks"
+Text_4 = "Mathematics"
+print(paste(Text_1,Text_2,Text_3,Text_4))
+
+3. Which function is used to construct a vector in R. Write a script to
+generate the following list of numerical values with spaces: 3 5 6 9 11 34
+print(c(3,5,6,9,11,34))
+
+4. Suppose you have two datasets A and B. Dataset A has the following
+data: 1 2 4 5. Dataset B has the following data: 6 7 8 9. Which function
+is used to combine the data from both datasets into dataset C. Demonstrate
+the function with the input values and write the output.
+Dataset_A = c(1,2,4,5)
+Dataset_B = c(6,7,8,9)
+print(c(Dataset_A,Dataset_B))
+
+5. Write the script to sort the values contained in the following vector in
+ascending order and descending order: (23, 45, 10, 34, 89, 20, 67, 99).
+Demonstrate the output.
+tbsv = c(23, 45, 10, 34, 89, 20, 67, 99)
+cat("Ascending Order: ", sort(tbsv),"\n")
+cat("Descending Order: ", sort(tbsv, decreasing = TRUE))
+
+6.
+Employee_Data = data.frame(
+names = c("John","Asad","Vishal"),
+salary = c(10,20,30)
+)
+print(Employee_Data)
+new_data = data.frame(
+names = c("Shivam","Isshan"),
+salary = c(40,50)
+)
+print(rbind(Employee_Data,new_data))
+
+
+7.
+marks = data.frame(
+subject = c(1,2,3,4,5,6),
+class = c(1,2,1,2,1,2),
+marks = c(56,75,48,69,84,53)
+)
+print(marks)
+print("subset: Subject less than 4")
+print(subset(marks,subject<4))
+print("subject column is less than 3 and the class equals to 2")
+print(marks[marks$subject <3 & marks$class == 2,]) #idhar end main square
+bracket ke pehle comma nahi dalega toh kaam nahi karega
+
+
+8. Write a R program to create a simple bar plot of five subjects marks.
+# ChatGPT ka Code
+subjects = c("Math", "Science", "English", "History", "Art")
+marks = c(85, 78, 92, 70, 65)
+barplot(marks, names.arg = subjects, col = "skyblue", main = "Subject
+Marks",
+xlab = "Subjects", ylab = "Marks", border = "black")
+9. Write a R program to create a sequence of numbers from 20 to 50 and
+find the mean of numbers from 20 to 60 and sum of numbers from 51 to 91.
+cat("Sequence 20 to 50: ",20:50,"\n")
+cat("the mean of numbers from 20 to 60 : ",mean(20:60),"\n")
+cat("sum of numbers from 51 to 91 : ",sum(51:91),"\n")
+10. Write a R program to create two 2x3 matrices and add, subtract,
+multiply and divide the matrices and print the results.
+matrix1 <- matrix(1:6, nrow = 2, ncol = 3)
+matrix2 <- matrix(7:12, nrow = 2, ncol = 3)
+cat('Matrix 1 \n')
+print(matrix1)
+cat('Matrix 2 \n')
+print(matrix2)
+addition <- matrix1 + matrix2
+subtraction <- matrix1 - matrix2
+multiplication <- matrix1 * matrix2
+division <- matrix1 / matrix2
+print("Addition")
+print(addition)
+print("subtraction")
+print(subtraction)
+print("multiplication")
+print(multiplication)
+print("Division")
+print(division)
+
+
+
+11. Write a R program to rotate a given matrix 90 degree clockwise
+rotation.
+print("Rotate a given matrix 90 degree clockwise rotation")
+matrix1 <- matrix(1:6, nrow = 2, ncol = 3)
+print("Original Matrix")
+print(matrix1)
+print("Rotated")
+print(t(apply(matrix1, 2, rev)))
+
+
+
+
+12. Write a R program to get the first 10 Fibonacci numbers
+fib <- numeric(10)
+fib[1] = 0
+fib[2] = 1
+for (i in 3:10) {
+fib[i] <- fib[i - 1] + fib[i - 2]
+}
+print(fib)
+
+
+
+13. Write a R program to find the factors of a given number.
+number <- 50
+factors <- c()
+for (i in 1:number) {
+if (number %% i == 0) {
+factors <- c(factors, i)
+}
+}
+print(factors)
+
+
+
+14. Write a R program to find the maximum and the minimum value of a given
+vector.
+vecte <- 1:60
+print(vecte)
+max <- 0
+min <- vecte[1]
+for (i in vecte){
+if(i>max){
+max <- i
+}
+else if (i<min) {
+min <-i
+}
+}
+cat(max,min,"\n")
+Or use max and min inbuilt function

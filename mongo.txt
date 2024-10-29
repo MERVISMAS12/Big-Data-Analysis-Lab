@@ -1,0 +1,117 @@
+pip install pymongo
+
+—-------------------------------
+
+import pymongo
+
+# Establish a connection to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+# Access the 'library' database
+db = client['library']
+
+# Access the 'books' collection within the 'library' database
+books_collection = db['books']
+
+# Define book documents to be inserted
+book1 = {
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "price": 29.99,
+    "available": True,
+    "tags": ["software", "programming", "best-practice"]
+}
+
+book2 = {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "price": 35.00,
+    "available": False,
+    "tags": ["software", "programming", "quality"]
+}
+
+# Insert documents into the collection
+books_collection.insert_many([book1, book2])
+
+print("Books inserted successfully")
+
+—---------------------------
+
+
+import pymongo
+
+# Establish a connection to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+# Access the 'library' database
+db = client['library']
+
+# Access the 'books' collection within the 'library' database
+books_collection = db['books']
+
+# Print all books in the collection
+print("All Books:")
+for book in books_collection.find():
+    print(book)
+
+# Define the author name
+author = "Andrew Hunt"
+
+# Print books by the specified author
+print(f"\nBooks by {author}:")
+for book in books_collection.find({"author": author}):
+    print(book)
+
+—---------------------------------------------------------
+
+
+import pymongo
+
+# Establish a connection to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+# Access the 'library' database
+db = client['library']
+
+# Access the 'books' collection
+books_collection = db['books']
+
+# Define the title and new price
+title = "Clean Code"
+new_price = 32.50
+
+# Update the price of the book with the specified title
+books_collection.update_one({"title": title}, {"$set": {"price": new_price}})
+print(f"\nUpdated price of '{title}' to {new_price}")
+
+# Find and print the updated book information
+book = books_collection.find_one({"title": title})
+print(f"\nUpdated Book Info: {book}")
+
+—-------------------------------------------------------------
+
+
+import pymongo
+
+# Establish a connection to MongoDB
+client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+# Access the 'library' database
+db = client['library']
+
+# Access the 'books' collection
+books_collection = db['books']
+
+# Define the title of the book to delete
+book_to_delete = "The Pragmatic Programmer"
+
+# Delete the specified book
+books_collection.delete_one({"title": book_to_delete})
+print(f"\nDeleted book: {book_to_delete}")
+
+# Check and print remaining books
+remaining_books = books_collection.find()
+
+print("\nRemaining Books:")
+for book in remaining_books:
+    print(book)

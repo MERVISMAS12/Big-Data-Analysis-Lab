@@ -1,0 +1,23 @@
+1. hadoop  version
+2. hdfs dfs -ls /
+3. hdfs dfsadmin -safemode leave
+4. hdfs dfs -mkdir /mac5
+5. hdfs dfs -ls /
+6. hdfs dfs -copyFromLocal /home/cloudera/Desktop/Mac /mac5
+7. hdfs dfs -ls /mac5
+8. hdfs dfs -cat /mac5/Mac
+9. hdfs dfs -mkdir /macnew5
+10. hdfs dfs -ls /
+11. hdfs dfs -put /home/cloudera/Desktop/MacNew /macnew5
+12. hdfs dfs -ls /macnew5
+13. hdfs dfs -copyToLocal /macnew5 /home/cloudera/Downloads
+14. ls /home/cloudera/Downloads
+15. hdfs dfs -get /macnew5 /home/cloudera/Downloads
+16. ls /home/cloudera/Downloads
+17. hdfs dfs -moveFromLocal /home/cloudera/Desktop/MacNew /macnew5
+18. hdfs dfs -ls /macnew5
+19. hdfs dfs -cp /mac5 /macnew5
+20. hdfs dfs -mv /macnew5 /mac5
+21. hdfs dfs -setrep 3 /mac5/Mac
+22. hdfs dfs -rm /mac5/Mac
+23. hdfs dfs -rm -r /mac5

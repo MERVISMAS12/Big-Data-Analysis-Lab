@@ -1,0 +1,24 @@
+import hashlib
+
+def hash_value(x):
+    # Hash function that returns a binary representation
+    return bin(int(hashlib.md5(str(x).encode()).hexdigest(), 16))
+
+def trailing_zeroes(hash_bin):
+    # Count the number of trailing zeroes in the binary hash
+    return len(hash_bin) - len(hash_bin.rstrip('0'))
+
+def flajolet_martin(stream):
+    max_trailing_zeroes = 0
+
+    for item in stream:
+        hash_bin = hash_value(item)
+        trailing_zeros = trailing_zeroes(hash_bin)
+        max_trailing_zeroes = max(max_trailing_zeroes, trailing_zeros)
+
+    # Estimation of unique elements: 2 ^ (max number of trailing zeroes)
+    return 2 ** max_trailing_zeroes
+
+# Input stream
+stream = [1,2,1,3]
+print("Estimated unique count:", flajolet_martin(stream))

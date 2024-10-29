@@ -1,0 +1,386 @@
+# prompt: 1.The following table shows the number of units of different products sold on different days (in R programming):
+# Product	Monday	Tuesday	Wednesday	Thursday	Friday
+# Bread	12	3	5	11	9
+# Milk	21	27	18	20	15
+# Cola Cans	10	1	33	6	12
+# Chocolate bars	6	7	4	13	12
+# Detergent	5	8	12	20	23
+# Create five sample numeric vectors from this data and pretty print them without [1].
+
+# Create the numeric vectors
+bread <- c(12, 3, 5, 11, 9)
+milk <- c(21, 27, 18, 20, 15)
+cola_cans <- c(10, 1, 33, 6, 12)
+chocolate_bars <- c(6, 7, 4, 13, 12)
+detergent <- c(5, 8, 12, 20, 23)
+
+# Pretty print the vectors without indices
+cat("Bread:", paste(bread, collapse = ", "), "\n")
+cat("Milk:", paste(milk, collapse = ", "), "\n")
+cat("Cola Cans:", paste(cola_cans, collapse = ", "), "\n")
+cat("Chocolate Bars:", paste(chocolate_bars, collapse = ", "), "\n")
+cat("Detergent:", paste(detergent, collapse = ", "), "\n")
+
+
+
+# prompt: 2.Which function is used to concatenate text values in R. Write a script to concatenate text and numerical values in R.
+# Text 1: Ram has scored
+# Text 2: 89
+# Text 3: marks
+# Text 4: in Mathematics
+
+# The paste() function is used to concatenate text values in R.
+
+# Create text and numeric values
+text1 <- "Ram has scored"
+text2 <- 89
+text3 <- "marks"
+text4 <- "in Mathematics"
+
+# Concatenate the text and numeric values using paste()
+result <- paste(text1, text2, text3, text4)
+
+# Print the concatenated string
+result
+
+
+
+# prompt: 3.Which  function is used to construct a vector in R. Write a script to generate the following list of numerical values with spaces:
+# 3 5 6  9 11  34
+
+# The function `c()` is used to construct a vector in R.
+
+# Generate the list of numerical values with spaces
+my_vector <- c(3, 5, 6, 9, 11, 34)
+cat(paste(my_vector, collapse = " "))
+
+
+
+# prompt: 4.Suppose you have two datasets A and B. Dataset A has the following data: 1 2 4 5. Dataset B has the following data: 6 7 8 9. Which function is used to combine the data from both datasets into dataset C. Demonstrate the function with the input values and write the output.
+
+# Create datasets A and B
+A <- c(1, 2, 4, 5)
+B <- c(6, 7, 8, 9)
+
+# Combine datasets A and B into dataset C using the c() function
+C <- c(A, B)
+
+# Print the combined dataset C
+cat(paste(C, collapse = " "))
+
+
+
+# prompt: 5.Write the script to sort the values contained in the following vector in ascending order and descending order: (23, 45, 10, 34, 89, 20, 67, 99). Demonstrate the output.
+
+# Create the vector
+my_vector <- c(23, 45, 10, 34, 89, 20, 67, 99)
+
+# Sort in ascending order
+ascending_order <- sort(my_vector)
+
+# Sort in descending order
+descending_order <- sort(my_vector, decreasing = TRUE)
+
+# Print the results
+cat("Ascending order:", paste(ascending_order, collapse = ", "), "\n")
+cat("Descending order:", paste(descending_order, collapse = ", "), "\n")
+
+
+
+# prompt: The data analyst of Argon technology Mr. John needs to enter the salaries of 10 employees in R. The salaries of the employees are given in the following table:
+# Sr. No.	Name of employees	Salaries
+# 1	Vivek	21000
+# 2	Karan	55000
+# 3	James	67000
+# 4	Soham	50000
+# 5	Renu	54000
+# 6	Farah	40000
+# 7	Hetal	30000
+# 8	Mary	70000
+# 9	Ganesh	20000
+# 10	Krish	15000
+# i. Which R command will Mr. John use to enter these values demonstrate the output
+# ii. Now Mr. John wants to add the salaries of 5 new employees in the existing table which command he will use to join datasets with new values in R. Demonstrate the output.
+
+# i. Creating the data frame
+employee_data <- data.frame(
+  Sr_No = 1:10,
+  Name = c("Vivek", "Karan", "James", "Soham", "Renu", "Farah", "Hetal", "Mary", "Ganesh", "Krish"),
+  Salaries = c(21000, 55000, 67000, 50000, 54000, 40000, 30000, 70000, 20000, 15000)
+)
+
+employee_data
+
+
+# ii. Adding new employees
+
+# Create data frame for new employees
+new_employees <- data.frame(
+  Sr_No = 11:15,
+  Name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+  Salaries = c(60000, 45000, 58000, 35000, 75000)
+)
+
+# Combine the datasets using rbind()
+updated_employee_data <- rbind(employee_data, new_employees)
+
+updated_employee_data
+
+
+
+# prompt: 7. Consider the following data frame given below:
+# Subject	Class	Marks
+# 1	1	56
+# 2	2	75
+# 3	1	48
+# 4	2	69
+# 5	1	84
+# 6	2	53
+# i. Create a subset of subjects less than 4 by using subset () function and demonstrate the output.
+# ii. Create a subset where the subject column is less than 3 and the class equals to 2 by using [ ] brackets and demonstrate the output.
+
+# Create the data frame
+df <- data.frame(
+  Subject = 1:6,
+  Class = c(1, 2, 1, 2, 1, 2),
+  Marks = c(56, 75, 48, 69, 84, 53)
+)
+
+# i. Subset using subset()
+subset_df1 <- subset(df, Subject < 4)
+paste("Subset using subset():")
+subset_df1
+
+# ii. Subset using []
+subset_df2 <- df[df$Subject < 3 & df$Class == 2, ]
+paste("Subset using []:")
+subset_df2
+
+
+
+# prompt: 9. Write a R program to create a sequence of numbers from 20 to 50 and find the mean of numbers from 20 to 60 and sum of numbers from 51 to 91.
+
+# Create a sequence of numbers from 20 to 50
+sequence_20_50 <- 20:50
+
+# Calculate the mean of numbers from 20 to 60
+mean_20_60 <- mean(20:60)
+
+# Calculate the sum of numbers from 51 to 91
+sum_51_91 <- sum(51:91)
+
+# Print the results
+cat("Sequence from 20 to 50:\n")
+print(sequence_20_50)
+cat("\nMean of numbers from 20 to 60:", mean_20_60, "\n")
+cat("Sum of numbers from 51 to 91:", sum_51_91, "\n")
+
+
+
+# prompt: 10.Write a R program to create two 2x3 matrices and add, subtract, multiply and divide the matrices and print the results. Values cant be continuous.
+
+# Create two 2x3 matrices with non-continuous values
+matrix1 <- matrix(c(1, 3, 5, 7, 9, 11), nrow = 2, ncol = 3, byrow = TRUE)
+matrix2 <- matrix(c(2, 4, 6, 8, 10, 12), nrow = 2, ncol = 3, byrow = TRUE)
+
+# Addition
+addition_result <- matrix1 + matrix2
+cat("Addition:\n")
+print(addition_result)
+
+# Subtraction
+subtraction_result <- matrix1 - matrix2
+cat("\nSubtraction:\n")
+print(subtraction_result)
+
+# Element-wise multiplication
+multiplication_result <- matrix1 * matrix2
+cat("\nElement-wise Multiplication:\n")
+print(multiplication_result)
+
+# Element-wise division
+division_result <- matrix1 / matrix2
+cat("\nElement-wise Division:\n")
+print(division_result)
+
+
+# prompt: 11. Write a R program to rotate a given matrix 90 degree clockwise rotation.
+
+rotate_matrix <- function(matrix) {
+  # Get the dimensions of the matrix
+  rows <- nrow(matrix)
+  cols <- ncol(matrix)
+
+  # Create an empty matrix for the rotated result
+  rotated_matrix <- matrix(0, nrow = cols, ncol = rows)
+
+  # Rotate the matrix 90 degrees clockwise
+  for (i in 1:rows) {
+    for (j in 1:cols) {
+      rotated_matrix[j, rows - i + 1] <- matrix[i, j]
+    }
+  }
+
+  # Return the rotated matrix
+  return(rotated_matrix)
+}
+
+# Example usage
+my_matrix <- matrix(1:9, nrow = 3, ncol = 3)
+
+# Print the original matrix
+cat("Original matrix:\n")
+print(my_matrix)
+
+# Rotate the matrix 90 degrees clockwise
+rotated_matrix <- rotate_matrix(my_matrix)
+
+# Print the rotated matrix
+cat("\nRotated matrix:\n")
+rotated_matrix
+
+
+
+# prompt: 12. Write a R program to get the first 10 Fibonacci numbers.
+
+# Initialize the first two Fibonacci numbers
+fib_sequence <- c(0, 1)
+
+# Loop to generate the next 8 Fibonacci numbers
+for (i in 3:10) {
+  next_fib <- fib_sequence[i - 1] + fib_sequence[i - 2]
+  fib_sequence <- c(fib_sequence, next_fib)
+}
+
+# Print the first 10 Fibonacci numbers
+cat("The first 10 Fibonacci numbers are:\n")
+paste(fib_sequence, collapse = ", ")
+
+
+
+# prompt: 13. Write a R program to find the factors of a given number.
+
+find_factors <- function(num) {
+  factors <- c()
+  for (i in 1:num) {
+    if (num %% i == 0) {
+      factors <- c(factors, i)
+    }
+  }
+  return(factors)
+}
+
+# Get input from the user
+number <- as.integer(readline("Enter a number: "))
+
+# Find and print the factors
+factors_of_number <- find_factors(number)
+cat("Factors of", number, "are:", paste(factors_of_number, collapse = ", "), "\n")
+
+
+
+# prompt: Write a R program to find the maximum and the minimum value of a given vector.
+
+# Create a vector
+my_vector <- c(10, 25, 5, 15, 30)
+
+# Find the maximum value
+max_value <- max(my_vector)
+
+# Find the minimum value
+min_value <- min(my_vector)
+
+# Print the results
+cat("Maximum value:", max_value, "\n")
+cat("Minimum value:", min_value, "\n")
+
+
+
+# prompt: 15. Write a R program to compute the sum, mean and product of a given vector elements.
+
+# Create a sample vector
+my_vector <- c(1, 2, 3, 4, 5)
+
+# Calculate the sum
+sum_of_elements <- sum(my_vector)
+
+# Calculate the mean
+mean_of_elements <- mean(my_vector)
+
+# Calculate the product
+product_of_elements <- prod(my_vector)
+
+# Print the results
+cat("Sum:", sum_of_elements, "\n")
+cat("Mean:", mean_of_elements, "\n")
+cat("Product:", product_of_elements, "\n")
+
+
+
+# prompt: 16. Write a R program to create a Dataframes which contain details of 5 employees and display the details.
+
+# Create a data frame with details of 5 employees
+employee_details <- data.frame(
+  EmployeeID = 1:5,
+  Name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+  Age = c(25, 30, 28, 35, 22),
+  Department = c("Sales", "Marketing", "IT", "HR", "Finance"),
+  Salary = c(50000, 60000, 70000, 55000, 65000)
+)
+
+# Display the details of the employees
+employee_details
+
+
+
+# prompt: 17.Write a R program to create a Dataframes which contain details of 5 employees and display summary of the data.
+
+# Create a data frame with details of 5 employees
+employee_details <- data.frame(
+  EmployeeID = 1:5,
+  Name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+  Age = c(25, 30, 28, 35, 22),
+  Department = c("Sales", "Marketing", "IT", "HR", "Finance"),
+  Salary = c(50000, 60000, 70000, 55000, 65000)
+)
+
+# Display the summary of the employee data
+summary(employee_details)
+
+
+
+# prompt: 18. Write a R program to access the element at 3rd column and 2nd row, only the 3rd row and only the 4th column of a given matrix.
+
+# Create a sample matrix
+my_matrix <- matrix(1:16, nrow = 4, ncol = 4)
+my_matrix
+# Access the element at the 3rd column and 2nd row
+element_3_2 <- my_matrix[2, 3]
+cat("Element at 3rd column and 2nd row:", element_3_2, "\n")
+
+# Access only the 3rd row
+third_row <- my_matrix[3, ]
+cat("3rd row:", paste(third_row, collapse = ", "), "\n")
+
+# Access only the 4th column
+fourth_column <- my_matrix[, 4]
+cat("4th column:", paste(fourth_column, collapse = ", "), "\n")
+
+
+
+# prompt: 19. Write a R program to access the element at 3rd column and 2nd row, only the 3rd row and only the 4th column of a given matrix.
+
+# Create a sample matrix
+my_matrix <- matrix(1:16, nrow = 4, ncol = 4)
+my_matrix
+# Access the element at the 3rd column and 2nd row
+element_3_2 <- my_matrix[2, 3]
+cat("Element at 3rd column and 2nd row:", element_3_2, "\n")
+
+# Access only the 3rd row
+third_row <- my_matrix[3, ]
+cat("3rd row:", paste(third_row, collapse = ", "), "\n")
+
+# Access only the 4th column
+fourth_column <- my_matrix[, 4]
+cat("4th column:", paste(fourth_column, collapse = ", "), "\n")

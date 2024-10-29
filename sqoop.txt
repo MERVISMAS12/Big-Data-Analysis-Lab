@@ -1,0 +1,36 @@
+1. open 2 terminals
+2. mysql -u root -pcloudera
+3. show databases;
+
+
+4. sqoop list-databases --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root;
+5. sqoop list-tables --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root;
+  5a. hdfs dfsadmin -safemode leave
+6. sqoop import --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table departments;
+7. hdfs dfs -ls
+8. hdfs dfs -ls departments
+9. hdfs dfs -cat /user/cloudera/departments/part*
+
+
+10. use retail_db;
+11. show tables;
+12. select * from departments;
+
+
+13. sqoop import --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table departments --target-dir /user/cloudera/department1;
+14. hdfs dfs -ls
+15. hdfs dfs -ls department1
+  15a. hdfs dfs -cat /user/cloudera/department1/part*
+16. sqoop import --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table departments --where "department_id>4" --target-dir /user/cloudera/department2;
+  16a. hdfs dfs -ls department2
+17. hdfs dfs -cat /user/cloudera/department2/part*
+
+
+18. create table dept(department_id int not null auto_increment, department_name varchar(50) not null, primary key(department_id));
+19. select * from dept;
+
+
+20. sqoop export --connect jdbc:mysql://quickstart:3306/retail_db --password cloudera --username root --table dept --export-dir /user/cloudera/department238;
+
+
+21. select * from dept;
